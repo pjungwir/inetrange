@@ -3,6 +3,7 @@ inetrange
 
 This is a Postgres extension to give you [ranges](https://www.postgresql.org/docs/current/static/rangetypes.html)
 of [inet values](https://www.postgresql.org/docs/current/static/datatype-net-types.html).
+I wrote a tutorial-style blog post about [using the Postgres `inet` type in ranges](http://illuminatedcomputing.com/posts/2016/06/inet-range/) that explains how you might build this extension "by hand", but since a small part of it requires C, it seems nicer to have it all packaged as an extension for people.
 
 
 Installing
