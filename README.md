@@ -48,4 +48,7 @@ You can also create exclusion constraints on `inetrange` columns:
 Because the exclusion constraint auto-generates a GiST index,
 you will also get fast lookups with operators like `<@`.
 
+See Also
+--------
 
+You might also be interested in the [ip4r extension](https://github.com/RhodiumToad/ip4r).
