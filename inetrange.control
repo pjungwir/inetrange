@@ -1,4 +1,4 @@
 comment = 'Range type for inet'
-default_version = '1.0.0'
+default_version = '1.0.1'
 module_pathname = '$libdir/inetrange'
 relocatable = true
