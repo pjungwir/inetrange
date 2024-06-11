@@ -16,6 +16,15 @@ PG_FUNCTION_INFO_V1(inetrange_canonical);
 #define PG_RETURN_RANGE_P PG_RETURN_RANGE
 #endif
 
+/*
+ * In pg16 this function got an "error context" parameter.
+ */
+#if PG_VERSION_NUM >= 160000
+#define my_range_serialize(typcache, lower, upper, empty) range_serialize(typcache, lower, upper, empty, fcinfo->context)
+#else
+#define my_range_serialize(typcache, lower, upper, empty) range_serialize(typcache, lower, upper, empty)
+#endif
+
 /**
  * Returns a canonical version of an inetrange.
  * by Paul A. Jungwirth
@@ -45,5 +54,5 @@ inetrange_canonical(PG_FUNCTION_ARGS)
     upper.inclusive = true;
   }
 
-  PG_RETURN_RANGE_P(range_serialize(typcache, &lower, &upper, false));
+  PG_RETURN_RANGE_P(my_range_serialize(typcache, &lower, &upper, false));
 }
